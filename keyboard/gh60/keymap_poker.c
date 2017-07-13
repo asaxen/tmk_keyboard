@@ -3,30 +3,30 @@
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* 0: qwerty */
     KEYMAP_ANSI(
-        GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, \
-        TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS, \
-        CAPS,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT,  \
-        LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          RSFT, \
-        LCTL,LGUI,LALT,          SPC,                     FN0, RGUI,APP, RCTL),
+        GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,  EQL, \
+        TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,  RBRC, BSLS, \
+        ESC, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,  BSPC, ENT, \
+        LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,             RSFT, \
+        LCTL,LGUI,LALT,          SPC,                     FN0, RGUI,  APP,  RCTL),
     /* 1: colemak */
     KEYMAP_ANSI(
-        GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, \
-        TAB, Q,   W,   F,   P,   G,   J,   L,   U,   Y,   SCLN,LBRC,RBRC,BSLS, \
-        BSPC,A,   R,   S,   T,   D,   H,   N,   E,   I,   O,   QUOT,     ENT,  \
-        LSFT,Z,   X,   C,   V,   B,   K,   M,   COMM,DOT, SLSH,          RSFT, \
-        LCTL,LGUI,LALT,          SPC,                     FN0, RGUI,APP, RCTL),
+        GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,  EQL, \
+        TAB, Q,   W,   F,   P,   G,   J,   L,   U,   Y,   SCLN,LBRC,  RBRC, BSLS, \
+        BSPC,A,   R,   S,   T,   D,   H,   N,   E,   I,   O,   QUOT,  BSPC, ENT,  \
+        LSFT,Z,   X,   C,   V,   B,   K,   M,   COMM,DOT, SLSH,             RSFT, \
+        LCTL,LGUI,LALT,          SPC,                     FN0, RGUI,  APP,  RCTL),
     /* 2: dvorak */
     KEYMAP_ANSI(
-        GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   LBRC,RBRC,BSPC, \
+        GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   LBRC,RBRC, \
         TAB, QUOT,COMM,DOT, P,   Y,   F,   G,   C,   R,   L,   SLSH,EQL, BSLS, \
-        CAPS,A,   O,   E,   U,   I,   D,   H,   T,   N,   S,   MINS,     ENT,  \
+        CAPS,A,   O,   E,   U,   I,   D,   H,   T,   N,   S,   MINS,    BSPC, ENT,  \
         LSFT,SCLN,Q,   J,   K,   X,   B,   M,   W,   V,   Z,             RSFT, \
         LCTL,LGUI,LALT,          SPC,                     FN0, RGUI,APP, RCTL),
     /* 3: workman */
     KEYMAP_ANSI(
-        GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, \
+        GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, \
         TAB, Q,   D,   R,   W,   B,   J,   F,   U,   P,   SCLN,LBRC,RBRC,BSLS, \
-        BSPC,A,   S,   H,   T,   G,   Y,   N,   E,   O,   I,   QUOT,     ENT,  \
+        BSPC,A,   S,   H,   T,   G,   Y,   N,   E,   O,   I,   QUOT,    BSPC, ENT,  \
         LSFT,Z,   X,   M,   C,   V,   K,   L,   COMM,DOT, SLSH,          RSFT, \
         LCTL,LGUI,LALT,          SPC,                     FN0, RGUI,APP, RCTL),
     /* 4: Poker with Arrow */
@@ -61,9 +61,9 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * FnS: toggle Arrow overlay
      */
     KEYMAP_ANSI(
-        ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, TRNS, \
+        ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, \
         TRNS,FN2, UP,  TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,CALC,TRNS,HOME,INS, FN4,  \
-        TRNS,LEFT,DOWN,RGHT,TRNS,TRNS,PSCR,SLCK,PAUS,TRNS,FN3, END,      TRNS, \
+        TRNS,LEFT,DOWN,RGHT,TRNS,TRNS,PSCR,SLCK,PAUS,TRNS,FN3, END, TRNS,TRNS, \
         TRNS,DEL, TRNS,WHOM,MUTE,VOLU,VOLD,TRNS,PGUP,PGDN,DEL,           TRNS, \
         TRNS,TRNS,TRNS,          FN1,                     TRNS,TRNS,TRNS,TRNS),
     /* 7: Layout selector

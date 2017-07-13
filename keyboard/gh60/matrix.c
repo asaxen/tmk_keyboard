@@ -45,6 +45,7 @@ static void select_row(uint8_t row);
 
 void matrix_init(void)
 {
+    xprintf("hello init");
     // initialize row and col
     unselect_rows();
     init_cols();
@@ -58,6 +59,7 @@ void matrix_init(void)
 
 uint8_t matrix_scan(void)
 {
+
     for (uint8_t i = 0; i < MATRIX_ROWS; i++) {
         select_row(i);
         _delay_us(30);  // without this wait read unstable value.
@@ -93,18 +95,18 @@ matrix_row_t matrix_get_row(uint8_t row)
 
 /* Column pin configuration
  * col: 0   1   2   3   4   5   6   7   8   9   10  11  12  13
- * pin: F0  F1  E6  C7  C6  B6  D4  B1  B0  B5  B4  D7  D6  B3  (Rev.A)
+ * pin: F0  F1  E6  C7  C6  B6  D4  B1  B0  B5  B4  D7  F7  B3  (Rev.A)
  * pin:                                 B7                      (Rev.B)
  */
 static void  init_cols(void)
 {
     // Input with pull-up(DDR:0, PORT:1)
-    DDRF  &= ~(1<<0 | 1<<1);
-    PORTF |=  (1<<0 | 1<<1);
+    DDRF  &= ~(1<<7 | 1<<0 | 1<<1);
+    PORTF |=  (1<<7 | 1<<0 | 1<<1);
     DDRE  &= ~(1<<6);
     PORTE |=  (1<<6);
-    DDRD  &= ~(1<<7 | 1<<6 | 1<<4);
-    PORTD |=  (1<<7 | 1<<6 | 1<<4);
+    DDRD  &= ~(1<<7 | 1<<4);
+    PORTD |=  (1<<7 | 1<<4);
     DDRC  &= ~(1<<7 | 1<<6);
     PORTC |=  (1<<7 | 1<<6);
     DDRB  &= ~(1<<7 | 1<<6 | 1<< 5 | 1<<4 | 1<<3 | 1<<1 | 1<<0);
@@ -113,7 +115,7 @@ static void  init_cols(void)
 
 static matrix_row_t read_cols(void)
 {
-    return (PINF&(1<<0) ? 0 : (1<<0)) |
+    /*return (PINF&(1<<0) ? 0 : (1<<0)) |
            (PINF&(1<<1) ? 0 : (1<<1)) |
            (PINE&(1<<6) ? 0 : (1<<2)) |
            (PINC&(1<<7) ? 0 : (1<<3)) |
@@ -125,8 +127,23 @@ static matrix_row_t read_cols(void)
            (PINB&(1<<5) ? 0 : (1<<9)) |
            (PINB&(1<<4) ? 0 : (1<<10)) |
            (PIND&(1<<7) ? 0 : (1<<11)) |
-           (PIND&(1<<6) ? 0 : (1<<12)) |
-           (PINB&(1<<3) ? 0 : (1<<13));
+           (PINF&(1<<7) ? 0 : (1<<12)) |
+           (PINB&(1<<3) ? 0 : (1<<13)); */
+
+   return (PINB&(1<<3) ? 0 : (1<<0)) |
+          (PINF&(1<<7) ? 0 : (1<<1)) |
+          (PIND&(1<<7) ? 0 : (1<<2)) |
+          (PINB&(1<<4) ? 0 : (1<<3)) |
+          (PINB&(1<<5) ? 0 : (1<<4)) |
+          ((PINB&(1<<0) && PINB&(1<<7)) ? 0 : (1<<5)) |
+          (PINB&(1<<1) ? 0 : (1<<6)) |
+          (PIND&(1<<4) ? 0 : (1<<7)) |
+          (PINB&(1<<6) ? 0 : (1<<8)) |
+          (PINC&(1<<6) ? 0 : (1<<9)) |
+          (PINC&(1<<7) ? 0 : (1<<10)) |
+          (PINE&(1<<6) ? 0 : (1<<11)) |
+          (PINF&(1<<1) ? 0 : (1<<12)) |
+          (PINF&(1<<0) ? 0 : (1<<13));
 }
 
 /* Row pin configuration

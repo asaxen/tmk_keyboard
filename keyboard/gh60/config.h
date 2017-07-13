@@ -22,9 +22,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0xFEED
 #define PRODUCT_ID      0x6060
-#define DEVICE_VER      0x0001
-#define MANUFACTURER    geekhack
-#define PRODUCT         GH60
+#define DEVICE_VER      0x0004
+#define MANUFACTURER    asaxen
+#define PRODUCT         SAXENKEYS
 #define DESCRIPTION     t.m.k. keyboard firmware for GH60
 
 /* key matrix size */
@@ -34,7 +34,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
 
-/* Set 0 if debouncing isn't needed */
+/* Set 0 if debouncing isn't needeselect_rowd */
 #define DEBOUNCE    5
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
